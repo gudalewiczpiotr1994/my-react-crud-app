@@ -5,6 +5,7 @@
     width: 100%;
     min-height: 40vh;
   }
+
   .Header{
     width: 100%;
     padding: 50px 20px;
@@ -12,28 +13,35 @@
   }
   
   .Typewriter{
+    width: 0;
     color:white;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
-    animation: 
-      typing 4s steps(40, end) infinite,
-      blink-caret .75s step-end infinite;
   }
-  
-  /* The typing effect */
-  @keyframes typing {
-    0% { width: 0 }
-    50% { width: 325px }
-    100% {width: 0}
+
+  .Information{
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px;
   }
-  
-  /* The typewriter cursor effect */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #8b4513; }
+
+  .userInterface{
+    width: 100%;
   }
-  
-  
+
+  .Button{
+    background: transparent;
+    border: rgb(106,0,158) solid 2px;
+    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+
+  .Button:hover{
+    color: white;
+    background: rgb(106,0,158);
+  }
