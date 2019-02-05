@@ -1,6 +1,10 @@
+html {
+  font-size: 62.5%; /* Now 10px = 1rem! */
+}
+
 .App {
   text-align: center;
-  font-family:  Helvetica, Arial, sans-serif
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .App-logo {
@@ -19,19 +23,18 @@
   color: white;
 }
 
-.Footer{
-  background-color:  rgb(106,0,158);
+.Footer {
+  background-color: rgb(106, 0, 158);
 }
 
-.Text{
+.Text {
   font-weight: 400;
   padding: 10px 20px;
   color: white;
   text-align: center;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 .App-link {
   color: #61dafb;
 }
-
