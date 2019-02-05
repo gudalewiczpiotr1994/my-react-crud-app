@@ -10,20 +10,7 @@ import axios from '../../axios-server';
 
 class Users extends Component {
     state = {
-        users: [
-            {
-                id: 1,
-                name: "Rob",
-                surname: "Stark",
-                age: "20",
-                email: "robstart@gameofthrones.com",
-                avatar: avatar,
-                address: {
-                    city: "Winterfall",
-                    street: "Castle"
-                },
-            },
-        ],
+        users: [],
         userDetail: {
             name: "Rob",
             surname: "Stark",
@@ -38,8 +25,8 @@ class Users extends Component {
     };
 
     componentDidMount () {
-        axios.get('/users.json')
-        .then(response => {
+        const users = axios.get('/users.json')
+        .then( response => {
             this.setState({users: response.data});
         });
     }
@@ -61,15 +48,11 @@ class Users extends Component {
             .then(response => console.log(response))
             .catch(error =>  console.log(error));
     }
+    
     render() {
-
-        const usersList = this.state.users.map(user => {
-            return <User 
-            name={user.name}
-            surname={user.surname}
-            age={user.age}
-            avatar={user.avatar} />
-        })
+        // const usersList = this.state.users.map(person => {
+        //     return <User name={person.name}/>
+        // })
         return (
             <div className="container">
                 <div className={classes.Users}>
@@ -88,7 +71,7 @@ class Users extends Component {
                             <h2 className={classes.Header}>List of Users</h2>
                             <div className={classes.border}></div>
                         </div>
-                        {usersList}
+                        {/* {usersList} */}
                     </div>
 
                 </div>
