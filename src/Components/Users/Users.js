@@ -5,21 +5,23 @@ import UserDetail from "./UserDetail/UserDetail";
 
 import classes from './Users.css';
 import avatar from "../../Assets/avatar.png";
+import axios from '../../axios-server';
 
 
 class Users extends Component {
     state = {
         users: [
             {
-                name: "",
-                surname: "",
-                email: "",
-                avatar: "",
+                id: 1,
+                name: "Rob",
+                surname: "Stark",
+                age: "20",
+                email: "robstart@gameofthrones.com",
+                avatar: avatar,
                 address: {
-                    city: "",
-                    street: ""
+                    city: "Winterfall",
+                    street: "Castle"
                 },
-                phone: ""
             },
         ],
         userDetail: {
@@ -34,7 +36,40 @@ class Users extends Component {
             },
         }
     };
+
+    componentDidMount () {
+        axios.get('/users.json')
+        .then(response => {
+            this.setState({users: response.data});
+        });
+    }
+
+    createPerson = () => {
+        const user = {
+            id: 1,
+            name: "Rob",
+            surname: "Stark",
+            age: "20",
+            email: "robstart@gameofthrones.com",
+            avatar: avatar,
+            address: {
+                city: "Winterfall",
+                street: "Castle"
+            },
+        };
+        axios.post('/users.json', user)
+            .then(response => console.log(response))
+            .catch(error =>  console.log(error));
+    }
     render() {
+
+        const usersList = this.state.users.map(user => {
+            return <User 
+            name={user.name}
+            surname={user.surname}
+            age={user.age}
+            avatar={user.avatar} />
+        })
         return (
             <div className="container">
                 <div className={classes.Users}>
@@ -45,11 +80,17 @@ class Users extends Component {
                         city={this.state.userDetail.address.city}
                         street={this.state.userDetail.address.street}
                         avatar={this.state.userDetail.avatar} />
-                    <User 
-                        name="example"
-                        surname="example2"
-                        age="21"
-                        avatar={avatar}/>
+
+                    <button className="btn btn-block btn-success" onClick={this.createPerson}>Create</button>
+                    <div className={classes.UsersContainer}>
+                        <div className="py-5">
+                            <div className={classes.border}></div>
+                            <h2 className={classes.Header}>List of Users</h2>
+                            <div className={classes.border}></div>
+                        </div>
+                        {usersList}
+                    </div>
+
                 </div>
 
             </div>

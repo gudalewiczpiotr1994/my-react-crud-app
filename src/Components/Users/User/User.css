@@ -1,0 +1,42 @@
+.User {
+  border: solid 2px rgb(106, 0, 158);
+  border-radius: 6px;
+  margin: 0;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.Avatar {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.UserInfo {
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.UsersBorder {
+  border-left: solid 2px rgb(106, 0, 158);
+}
+
+@media screen and (max-width: 767px) {
+  .Avatar {
+    position: relative;
+    width: 170.5px;
+    left: calc(50% - 85.25px);
+    text-align: center;
+  }
+  .UserInfo{
+      text-align: center;
+  }
+  .UsersBorder {
+    border-left: none;
+  }
+}

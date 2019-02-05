@@ -7,7 +7,7 @@ class UserDetail extends Component {
             <div className={"container text-center"}>
                 <div className={classes.UserDetail}>
                     <h2 className={classes.Header}>User Detail</h2>
-                    <div className={"row"}>
+                    <div className={"row mt-4"}>
                         <div className="col-lg-8">
                             <div className="my-3 col-12">
                                 <p className={"col-6" + " " + classes.Notification}>Name: </p>
