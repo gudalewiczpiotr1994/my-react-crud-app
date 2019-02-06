@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
         let textString = ""
         this.state.helloString.map(res => {
-            textString = res.text;
+            return textString = res.text;
         })
 
         let text = <p className={classes.Typewriter}>{textString}</p>
@@ -29,7 +29,7 @@ class Home extends Component {
             }, 2000)
         });
 
-        let changeText = setTimeout(() => {
+        setTimeout(() => {
             this.state.helloString.map(res => {
                 if (res.id === true) {
                     this.setState({ helloString: [{ text: "Hello. My name is Peter", id: false }] })
@@ -46,7 +46,6 @@ class Home extends Component {
                     });
                 }
             });
-            // clearTimeout(changeText);
         }, 4500);
 
 

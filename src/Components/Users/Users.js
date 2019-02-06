@@ -25,15 +25,16 @@ class Users extends Component {
     };
 
     componentDidMount () {
-        const users = axios.get('/users.json')
-        .then( response => {
-            this.setState({users: response.data});
-        });
+        axios.get('/users.json')
+        .then(response => {
+            const data = Object.values(response.data);
+            console.log(data);
+            this.setState({ users : data });
+            });
     }
 
     createPerson = () => {
         const user = {
-            id: 1,
             name: "Rob",
             surname: "Stark",
             age: "20",
@@ -50,9 +51,14 @@ class Users extends Component {
     }
     
     render() {
-        // const usersList = this.state.users.map(person => {
-        //     return <User name={person.name}/>
-        // })
+        const usersList = this.state.users.map(person => {
+            return <User 
+            key={person.id}
+            name={person.name} 
+            surname={person.surname} 
+            age={person.age} 
+            avatar={person.avatar}/>
+        })
         return (
             <div className="container">
                 <div className={classes.Users}>
@@ -71,7 +77,7 @@ class Users extends Component {
                             <h2 className={classes.Header}>List of Users</h2>
                             <div className={classes.border}></div>
                         </div>
-                        {/* {usersList} */}
+                        {usersList}
                     </div>
 
                 </div>

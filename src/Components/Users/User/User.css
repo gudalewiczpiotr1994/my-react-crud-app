@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+.User:hover{
+  background-color: #dedede;
+  transition: all ease-in-out .3s;
+}
+
 .Avatar {
   width: 50%;
   position: absolute;
@@ -20,6 +25,7 @@
   padding: 1rem;
   font-size: 1.6rem;
   font-weight: 300;
+  margin: 0;
 }
 
 .UsersBorder {

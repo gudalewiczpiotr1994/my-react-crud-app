@@ -1,0 +1,27 @@
+.SignIn{
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
+.Form{
+    margin: 2rem auto;
+    padding: 5rem;
+    z-index: -1;
+    box-shadow: 0 0 5px #aaa;
+}
+
+.Button{
+    font-weight: 300;
+    letter-spacing: 1px;
+    background: rgb(106,0,158);
+    color:white;
+    padding:  .5rem 2rem;
+    font-size: 1.3rem;
+    border: solid 2px transparent;
+}
+
+.Button:hover{
+    color: rgb(106,0,158);
+    background: white;
+    border: 2px solid rgb(106,0,158);
+}
