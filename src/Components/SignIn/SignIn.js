@@ -8,13 +8,13 @@ class SignIn extends Component {
                 <div className="container text-center">
                     <h1>Log In</h1>
                     <div className={classes.Form}>
-                    <div class="form-group offset-md-3 col-md-6">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <div className="form-group offset-md-3 col-md-6">
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
                     </div>
-                    <div class="form-group offset-md-3 col-md-6">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    <div className="form-group offset-md-3 col-md-6">
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                     </div>
-                    <button type="submit" class={"btn " + classes.Button}>Sign In</button>
+                    <button type="submit" className={"btn " + classes.Button}>Sign In</button>
                     </div>
                 </div>
             </div>

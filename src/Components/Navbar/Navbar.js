@@ -4,6 +4,7 @@ import Home from '../Home/Home';
 import Users from '../Users/Users';
 import  classes from './Navbar.css';
 import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
 class Navbar extends Component {
 
     render() { 
@@ -23,12 +24,16 @@ class Navbar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/signIn">Sign In</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/signUp">Sign Up</Link>
+                    </li>
                 </ul>
             </div>
             </nav>
             <Route exact path="/" component={Home} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/signIn" component={SignIn} />
+            <Route exact path="/signUp" component={SignUp} />
         </div>
      
         </Router>
