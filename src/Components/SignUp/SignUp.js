@@ -33,7 +33,8 @@ class SignUp extends Component {
                 },
                 valid: false
             }
-        }
+        },
+        validationText: ''
       }
 
 
@@ -42,21 +43,26 @@ class SignUp extends Component {
         let isValid = true;
         
         if(rules.required){
-            isValid = value.trim() !== '' && isValid;
+            if(isValid = value.trim() !== '' && isValid ) {this.setState({validationText: ""})}
+            else{this.setState({validationText : "Please insert your information"})}
         }
 
         if(rules.minLength){
-            isValid = value.length >= rules.minLength && isValid
+            if(isValid = value.length >= rules.minLength && isValid){this.setState({validationText: ""})}
+            else{this.setState({validationText : "Password should contain 6-14 characters"})}
         }
 
         if(rules.maxLength){
-            isValid = value.length <= rules.maxLength && isValid
+            if(isValid = value.length <= rules.maxLength && isValid ){this.setState({validationText: ""}) }
+            else{this.setState({validationText : "Password should contain 6-14 characters"})}
         }
 
         if(rules.isEmail){
             const type =   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            isValid = type.test(value) && isValid;
+            if(isValid = type.test(value) && isValid){this.setState({validationText:""})}
+            else{this.setState({validationText : "Please check your email format."})}
         }
+
 
         return isValid;
       }
@@ -70,6 +76,7 @@ class SignUp extends Component {
                 valid: this.checkValidity(event.target.value,this.state.controls[controlName].validation)
             }
         };
+
         this.setState({controls: updatedControls});
       }
 
@@ -82,16 +89,20 @@ class SignUp extends Component {
                 password: updatedState.password.value,
                 returnSecureToken: true 
           }
+
+          if(this.state.controls.password.value === '' || this.state.controls.email.value === '' ){
+              this.setState({validationText: "Please fill an empty areas"})
+          }
           
           if(this.state.controls.password.valid === true && this.state.controls.email.valid === true ){
             axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCAUePJP_C-MavetbBP2JTafM7dTyyjOqs', data)
             .then(res => {
                 res = data;
+                this.setState({validationText : "Congratulation! You have been registered."})
             })
           }
 
       }
-
     render() { 
         const formElementsArray = [];
         for (let key in this.state.controls) {
@@ -121,6 +132,7 @@ class SignUp extends Component {
                     <div className={classes.Form}>
                     <form>
                         {form}
+                        <p className={this.state.valid ? classes.ValidationSuccess : classes.ValidationError}>{this.state.validationText}</p>
                     </form>
                 </div>
                 <button className={"btn " + classes.Button} onClick={this.onSubmitHandler} >Sign Up</button>

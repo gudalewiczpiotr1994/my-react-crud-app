@@ -25,3 +25,16 @@
     background: white;
     border: 2px solid rgb(106,0,158);
 }
+
+.ValidationSuccess, .ValidationError{
+    font-size: 2rem;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.ValidationSuccess{
+    color: green;
+}
+.ValidationError{
+    color: red;
+}
