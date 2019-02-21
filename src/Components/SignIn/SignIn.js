@@ -37,6 +37,7 @@ class SignIn extends Component {
             }
         },
         validationText: '',
+        isLogged: false,
     }
 
     checkValidity(value, rules) {
@@ -96,6 +97,8 @@ class SignIn extends Component {
             axios.post(url, data)
                 .then(res => {
                     sessionStorage.setItem('isLogged', true);
+                    this.setState({isLogged : true})
+                    this.props.history.push(this.state.isLogged)
                     this.props.history.push("/users");
                 })
                 .catch(error => {

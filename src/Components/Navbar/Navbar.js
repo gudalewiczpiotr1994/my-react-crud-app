@@ -6,10 +6,23 @@ import classes from './Navbar.css';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 class Navbar extends Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            isLogged : sessionStorage.getItem('isLogged') ? true : false,
+        }
+    }
+
+
+
     logOut = () => {
         sessionStorage.removeItem('isLogged');
+        this.setState({isLogged : false});
     }
+
     render() {
+        
         return (
             <Router>
                 <div>
@@ -24,7 +37,7 @@ class Navbar extends Component {
                                     <Link className="nav-link px-4" to="/users">Users</Link>
                                 </li>
                                 <li className="nav-item">
-                                    {sessionStorage.getItem('isLogged') ?
+                                    {this.state.isLogged ?
                                     <Link onClick={this.logOut} className="nav-link px-4" to="/">Log Out</Link>
                                     :<Link className="nav-link px-4" to="/signIn">Sign In</Link>
                                 }
