@@ -11,13 +11,14 @@
 }
 
 .Button{
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 1px;
     background: rgb(106,0,158);
     color:white;
-    padding:  .5rem 2rem;
     font-size: 1.3rem;
     border: solid 2px transparent;
+    padding:  .5rem 2rem;
+    margin-top: 1rem;
 }
 
 .Button:hover{
@@ -26,15 +27,14 @@
     border: 2px solid rgb(106,0,158);
 }
 
-.ValidationSuccess, .ValidationError{
+
+.Validation{
     font-size: 2rem;
-    font-weight: bolder;
+    font-weight: normal;
     letter-spacing: 1px;
+    padding: 2rem 1rem; 
 }
 
-.ValidationSuccess{
-    color: green;
-}
-.ValidationError{
-    color: red;
+.Validation{
+    color: rgb(106,0,158);
 }

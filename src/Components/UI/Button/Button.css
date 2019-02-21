@@ -1,0 +1,17 @@
+.Button{
+    font-weight: 300;
+    letter-spacing: 1px;
+    background: rgb(106,0,158);
+    color:white;
+    padding:  .5rem 2rem;
+    font-size: 1.3rem;
+    border: solid 2px transparent;
+    display: block;
+    margin: auto;
+}
+
+.Button:hover{
+    color: rgb(106,0,158);
+    background: white;
+    border: 2px solid rgb(106,0,158);
+}

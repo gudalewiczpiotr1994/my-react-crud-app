@@ -28,26 +28,11 @@ class Users extends Component {
         axios.get('/users.json')
         .then(response => {
             const data = Object.values(response.data);
-            console.log(data);
             this.setState({ users : data });
             });
-    }
-
-    createPerson = () => {
-        const user = {
-            name: "Rob",
-            surname: "Stark",
-            age: "20",
-            email: "robstart@gameofthrones.com",
-            avatar: avatar,
-            address: {
-                city: "Winterfall",
-                street: "Castle"
-            },
-        };
-        axios.post('/users.json', user)
-            .then(response => console.log(response))
-            .catch(error =>  console.log(error));
+            if(!sessionStorage.getItem('isLogged')){
+                this.props.history.push("/signIn");
+            }
     }
     
     render() {
@@ -69,8 +54,6 @@ class Users extends Component {
                         city={this.state.userDetail.address.city}
                         street={this.state.userDetail.address.street}
                         avatar={this.state.userDetail.avatar} />
-
-                    <button className="btn btn-block btn-success" onClick={this.createPerson}>Create</button>
                     <div className={classes.UsersContainer}>
                         <div className="py-5">
                             <div className={classes.border}></div>

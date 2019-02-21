@@ -10,15 +10,24 @@
     width: 100%;
     padding: 50px 20px;
     color:white;
+    font-size: 3.5rem;
   }
   
   .Typewriter{
     width: 0;
+    font-size: 1.6rem;
     color:white;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
+    animation: type 4.5s steps(60,end) infinite; 
+  }
+
+  @keyframes type {
+    0% { width: 0; } 
+    50% { width: 360px };
+    100% { width: 0 };
   }
 
   .Information{

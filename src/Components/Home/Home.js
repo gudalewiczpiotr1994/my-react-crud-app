@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './Home.css';
-import $ from 'jquery';
 import usersImage from '../../Assets/users.png';
 import { Link } from "react-router-dom";
 class Home extends Component {
@@ -18,33 +17,13 @@ class Home extends Component {
             return textString = res.text;
         })
 
-        let text = <p className={classes.Typewriter}>{textString}</p>
-        let textStyle = $('.Home__Typewriter__33iS_');
-
-        textStyle.animate({
-            width: '325px'
-        }, 2000, function () {
-            $(this).animate({
-                width: '0'
-            }, 2000)
-        });
+        let text = (<p className={classes.Typewriter}>{textString}</p>);
 
         setTimeout(() => {
             this.state.helloString.map(res => {
-                if (res.id === true) {
-                    this.setState({ helloString: [{ text: "Hello. My name is Peter", id: false }] })
-
-                }
-                if (res.id === false) {
-                    this.setState({ helloString: [{ text: "Welcome to My React CRUD App", id: true }] })
-                    textStyle.stop().animate({
-                        width: '325px'
-                    }, 2000, function () {
-                        $(this).animate({
-                            width: '0'
-                        }, 2000)
-                    });
-                }
+                res.id === true ?  
+                this.setState({ helloString: [{ text: "Welcome to My React CRUD App", id: false }] })
+                :this.setState({ helloString: [{ text: "Hello. My name is Peter", id: true }] })
             });
         }, 4500);
 

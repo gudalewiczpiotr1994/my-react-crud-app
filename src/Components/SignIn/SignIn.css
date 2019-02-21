@@ -11,11 +11,12 @@
 }
 
 .Button{
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 1px;
     background: rgb(106,0,158);
     color:white;
     padding:  .5rem 2rem;
+    margin-top: 1rem;
     font-size: 1.3rem;
     border: solid 2px transparent;
 }
@@ -24,4 +25,36 @@
     color: rgb(106,0,158);
     background: white;
     border: 2px solid rgb(106,0,158);
+}
+
+.AccNotification{
+    font-size: 1.4rem;
+    padding: 1.5rem;
+}
+
+.Link{
+    font-size: 1.4rem;
+    color: rgb(106,0,158);
+    text-transform: uppercase;
+    margin: 1rem;
+    border: transparent 1px solid;
+    padding: .5rem;
+
+}
+
+.Link:hover{
+    text-decoration: none;
+    border: rgb(106,0,158) 1px solid;
+    color: rgb(106,0,158);
+}
+
+.Validation{
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding: 2rem 1rem; 
+}
+
+.Validation{
+    color: rgb(106,0,158);
 }
