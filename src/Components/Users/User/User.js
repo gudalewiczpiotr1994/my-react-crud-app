@@ -5,7 +5,8 @@ class User extends Component {
     state = {}
     render() {
         return (
-            <div className={"container px-0"}>
+            <div 
+            className={"container px-0"}>
                 <div className={"row " + classes.User}>
                     <div className="col-md-2">
                         <img className={classes.Avatar} src={this.props.avatar} alt="Empty User image" />

@@ -29,7 +29,6 @@ class SignUp extends Component {
                     required: true,
                     minLength: 6,
                     maxLength: 14
-
                 },
                 valid: false
             }
@@ -95,7 +94,7 @@ class SignUp extends Component {
             axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCAUePJP_C-MavetbBP2JTafM7dTyyjOqs', data)
                 .then(res => {
                     res = data;
-                    this.setState({ validationText: "Congratulation! You have been registered. You will be moving to the sign in section for a moment :) " })
+                    this.setState({ validationText: "Congratulation! You have been registered. You will be moving to the sign-in section for a moment :) " })
                     setTimeout(() => {
                         this.props.history.push("/signIn");
                     }, 5000);

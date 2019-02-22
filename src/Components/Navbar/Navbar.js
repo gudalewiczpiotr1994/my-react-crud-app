@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Home from '../Home/Home';
 import Users from '../Users/Users';
 import classes from './Navbar.css';
@@ -10,11 +10,9 @@ class Navbar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isLogged : sessionStorage.getItem('isLogged') ? true : false,
+            isLogged : sessionStorage.getItem('isLogged') ? true : false ,
         }
     }
-
-
 
     logOut = () => {
         sessionStorage.removeItem('isLogged');
@@ -24,7 +22,6 @@ class Navbar extends Component {
     render() {
         
         return (
-            <Router>
                 <div>
                     <nav className={"navbar navbar-expand-lg navbar-light bg-light " + classes.NavbarFont} >
                         <Link className={"navbar-brand " + classes.NavbarFont} to="/">Home</Link>
@@ -45,13 +42,7 @@ class Navbar extends Component {
                             </ul>
                         </div>
                     </nav>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/users" component={Users} />
-                    <Route exact path="/signIn" component={SignIn} />
-                    <Route exact path="/signUp" component={SignUp} />
                 </div>
-
-            </Router>
 
         );
     }

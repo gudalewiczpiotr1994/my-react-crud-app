@@ -1,13 +1,16 @@
-.Footer{
-    background-color:  rgb(106,0,158);
-    width:100%;
-}
-
-.Text{
+.Footer {
+    background-color: rgb(106, 0, 158);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .Text {
     font-weight: 400;
     padding: 10px 20px;
+    margin: 0;
     color: white;
     text-align: center;
-    letter-spacing: .5px;
-    margin: 0;
-}
+    letter-spacing: 0.5px;
+  }
+  
