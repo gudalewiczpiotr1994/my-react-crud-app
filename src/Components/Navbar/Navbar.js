@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import Home from '../Home/Home';
 import Users from '../Users/Users';
 import classes from './Navbar.css';
@@ -11,7 +11,6 @@ class Navbar extends Component {
     }
     render() {
         return (
-            <Router>
                 <div>
                     <nav className={"navbar navbar-expand-lg navbar-light bg-light " + classes.NavbarFont} >
                         <Link className={"navbar-brand " + classes.NavbarFont} to="/">Home</Link>
@@ -37,9 +36,6 @@ class Navbar extends Component {
                     <Route exact path="/signIn" component={SignIn} />
                     <Route exact path="/signUp" component={SignUp} />
                 </div>
-
-            </Router>
-
         );
     }
 }
