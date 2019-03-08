@@ -57,7 +57,7 @@ class Home extends Component {
                             <Link className="nav-link" to="/users">
                                 <button className={classes.Button}>
                                     Users
-                            </button>
+                                </button>
                             </Link>
                         </div>
                     </div>

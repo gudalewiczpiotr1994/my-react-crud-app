@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
-import Home from '../Home/Home';
-import Users from '../Users/Users';
+import { Link } from "react-router-dom";
 import classes from './Navbar.css';
-import SignIn from '../SignIn/SignIn';
-import SignUp from '../SignUp/SignUp';
 class Navbar extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            isLogged : sessionStorage.getItem('isLogged') ? true : false ,
+        }
+    }
+
     logOut = () => {
         sessionStorage.removeItem('isLogged');
+        this.setState({isLogged : false});
     }
+
     render() {
+
         return (
                 <div>
                     <nav className={"navbar navbar-expand-lg navbar-light bg-light " + classes.NavbarFont} >
@@ -23,7 +30,7 @@ class Navbar extends Component {
                                     <Link className="nav-link px-4" to="/users">Users</Link>
                                 </li>
                                 <li className="nav-item">
-                                    {sessionStorage.getItem('isLogged') ?
+                                    {this.state.isLogged ?
                                     <Link onClick={this.logOut} className="nav-link px-4" to="/">Log Out</Link>
                                     :<Link className="nav-link px-4" to="/signIn">Sign In</Link>
                                 }
@@ -31,10 +38,6 @@ class Navbar extends Component {
                             </ul>
                         </div>
                     </nav>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/users" component={Users} />
-                    <Route exact path="/signIn" component={SignIn} />
-                    <Route exact path="/signUp" component={SignUp} />
                 </div>
         );
     }

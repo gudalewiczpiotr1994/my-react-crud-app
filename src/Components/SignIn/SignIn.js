@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './SignIn.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class SignIn extends Component {
@@ -37,6 +37,7 @@ class SignIn extends Component {
             }
         },
         validationText: '',
+        isLogged: false,
     }
 
     checkValidity(value, rules) {
@@ -77,11 +78,13 @@ class SignIn extends Component {
         this.setState({ controls: updatedControls });
     }
 
+    
     onSubmitHandler = () => {
         let updatedState = {
             ...this.state.controls
         }
-
+        console.log('works');
+    
         const data = {
             email: updatedState.email.value,
             password: updatedState.password.value,
@@ -90,13 +93,18 @@ class SignIn extends Component {
         if (this.state.controls.password.value === '' || this.state.controls.email.value === '') {
             this.setState({ validationText: "Please fill an empty areas" })
         }
-
+    
         const url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCAUePJP_C-MavetbBP2JTafM7dTyyjOqs';
         if (this.state.controls.password.valid === true && this.state.controls.email.valid === true) {
             axios.post(url, data)
                 .then(res => {
                     sessionStorage.setItem('isLogged', true);
-                    this.props.history.push("/users");
+                    this.setState({isLogged : true})
+                    this.props.history.push({
+                            pathname: "/users",
+                            search: '?query=abc',
+                            state: { isLogged : true}
+                    });
                 })
                 .catch(error => {
                     if (error.status === 400) {
@@ -136,7 +144,7 @@ class SignIn extends Component {
                         <form>
                             {form}
                         </form>
-                        <button className={"btn " + classes.Button} onClick={this.onSubmitHandler} >Sign In</button>
+                        <button className={"btn " + classes.Button} onClick={this.props.onSubmitHandler} >Sign In</button>
                         <p className={classes.Validation}>{this.state.validationText}</p>
                     </div>
                     <p className={classes.AccNotification}>
